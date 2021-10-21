@@ -8,32 +8,69 @@ public class Mathey {
      * public static ...
      */
     // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
+    public static int max(int x, int y){
+        if (x>y){
+            return x;
+        }else{
+            return y;
+        }
+    }
 
-
+    public static int min (int x, int y){
+        if (x>y){
+            return y;
+        }else{
+            return x;
+        }
+    }
 
 
     /* Write another method called max that takes **two doubles**
      * Ex. max(1, 4, 2) => 4
      */
-    // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
+    public static double max(double x, double y){
+        if (x>y){
+            return x;
+        }else{
+            return y;
+        }
+    }
 
+    //Extra for min
+    public static double min (double x, double y){
+        if (x>y){
+            return y;
+        }else{
+            return x;
+        }
+    }
 
 
 
     /* Write another method called max that takes **three integers**
      * Ex. max(1, 4, 2) => 4
      */
-    // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
+    // METHOD OVERLOADING
+    public static int max(int x, int y, int z){
+        return max(x, max(y, z));
+    }
+
+    //Extra for Min
+    public static int min(int x, int y, int z){
+        return min(x, min(y, z));
+    }
 
 
 
 
     /* Write another method called max that takes **four doubles**
-     * Ex. max(1.0, 4.25, 2.1) => 4.25
+     * Ex. max(1.0, 4.25, 2.1, 1.4) => 4.25
      */
     // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
 
-
+    public static double max(double a, double b, double c, double d){
+        return max(a,(max(b,(max(c,d)))));
+    }
 
 
     /* Write a method that takes **two integers** and generates a random
@@ -45,6 +82,17 @@ public class Mathey {
      */
     // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
 
+    public static int randomInteger(int x, int y){
+        int mx = max(x,y) + 1;
+        int mn = min(x,y);
+        int a = (int) (Math.random() * mx);
+        if (a<mn){
+            a += mn;
+        }else if (a>mx){
+            a -= mx;
+        }
+        return a;
+    }
 
 
 
@@ -57,7 +105,17 @@ public class Mathey {
      */
     // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
 
-
+    public static int randomInteger(int x){
+        int mx = x+1;
+        int mn = 0;
+        int a = (int) (Math.random() * mx);
+        if (a<mn){
+            a += mn;
+        }else if (a>mx){
+            a -= mx;
+        }
+        return a;
+    }
 
 
 
@@ -73,7 +131,13 @@ public class Mathey {
      */
     // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
 
-
+public static int pow(int x,int y){
+    int a = 1;
+    for (int i = 0; i < y; i++) {
+        a *= x;
+    }
+    return a;
+}
 
 
     /* Write a method that takes **one integer** and returns the
@@ -82,7 +146,15 @@ public class Mathey {
      *     abs(-2) => 2
      */
     // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
-
+    public static int abs(int x){
+        int y = 0;
+        if (x<0){
+            y = 0 - x;
+            return  y;
+        }else {
+            return x;
+        }
+    }
 
 
 
@@ -93,7 +165,11 @@ public class Mathey {
      *     round(2.5) => 2
      */
     // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
-
+public static int round(double x){
+    int a = 0;
+    a = (int) (x + 0.5);
+    return a;
+}
 
 
 
@@ -107,7 +183,9 @@ public class Mathey {
      *     floor(2.999999999999) => 2
      */
     // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
-
+    public static int floor(double x){
+        return (int)(x);
+    }
 
 
 
@@ -121,7 +199,9 @@ public class Mathey {
      *     ceil(3.01) => 4
      */
     // YOUR CODE HERE, METHOD HEADER ALSO REQUIRED
-
+    public static int ceil(double x){
+        return (int)(x+1);
+    }
 
 
 
@@ -139,5 +219,16 @@ public class Mathey {
         }
 
         return x1;
+    }
+
+
+
+
+    // Pythag Method
+    public static double pythag(double a, double b){
+        double c = 0;
+        c = (pow((int)(a),2)) + (pow((int)(b),2));
+        c = sqrt(c);
+        return c;
     }
 }
